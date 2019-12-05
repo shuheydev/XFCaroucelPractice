@@ -1,35 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="XFCaroucelPractice.Views.CollectionViewPage">
+<ContentPage
+    x:Class="XFCaroucelPractice.Views.CollectionViewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-            <Label Text="{Binding RemainingItemsThreshold}"/>
-            <CollectionView ItemsSource="{Binding People}"
-                            RemainingItemsThreshold="{Binding RemainingItemsThreshold}"
-                            RemainingItemsThresholdReachedCommand="{Binding RemainingItemsThresholdReachedCommand}"
-                            RemainingItemsThresholdReached="CollectionView_RemainingItemsThresholdReached"
-                            HorizontalOptions="Center"
-                            Margin="50"
-                            SelectionMode="Single"
-                            SelectionChanged="CollectionView_SelectionChanged" 
-                            ItemSizingStrategy="MeasureFirstItem"
-                            >
+            <Label
+                HorizontalOptions="Center"
+                Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" />
+            <Label Text="{Binding RemainingItemsThreshold}" />
+            <CollectionView
+                Margin="50"
+                HorizontalOptions="Center"
+                ItemSizingStrategy="MeasureFirstItem"
+                ItemsSource="{Binding People}"
+                RemainingItemsThreshold="{Binding RemainingItemsThreshold}"
+                RemainingItemsThresholdReachedCommand="{Binding RemainingItemsThresholdReachedCommand}"
+                SelectionChanged="CollectionView_SelectionChanged"
+                SelectionMode="Single">
                 <CollectionView.ItemsLayout>
                     <!--<GridItemsLayout Orientation="Vertical" Span="1"
                                      HorizontalItemSpacing="8"
                                      VerticalItemSpacing="8"
                                      SnapPointsType="Mandatory"/>-->
-                    <LinearItemsLayout Orientation="Vertical"
-                                       ItemSpacing="8"
-                                       SnapPointsAlignment="Center"
-                                       SnapPointsType="Mandatory"/>
+                    <LinearItemsLayout
+                        ItemSpacing="8"
+                        Orientation="Horizontal"
+                        SnapPointsAlignment="Start"
+                        SnapPointsType="Mandatory" />
 
 
                 </CollectionView.ItemsLayout>
@@ -37,11 +39,15 @@
                     <DataTemplate>
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="100"/>
-                                <RowDefinition Height="1"/>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="1" />
                             </Grid.RowDefinitions>
-                            <Frame Grid.Row="0" BorderColor="Gray" HasShadow="True">
-                                <Grid Padding="10">
+                            <Frame
+                                Grid.Row="0"
+                                Margin="0,0,0,0"
+                                BorderColor="Gray"
+                                HasShadow="True">
+                                <Grid Padding="0">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />
                                         <RowDefinition Height="Auto" />
@@ -50,25 +56,29 @@
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="Auto" />
                                     </Grid.ColumnDefinitions>
-                                    <Image Grid.RowSpan="2"
-                               Source=""
-                               Aspect="AspectFill"
-                               HeightRequest="60"
-                               WidthRequest="60" />
-                                    <Label Grid.Column="1"
-                               Text="{Binding FirstName}"
-                               FontAttributes="Bold"/>
-                                    <Label Grid.Row="1"
-                               Grid.Column="1"
-                               Text="{Binding LastName}"
-                               FontAttributes="Italic"
-                               VerticalOptions="End" />
+                                    <Image
+                                        Grid.RowSpan="2"
+                                        Aspect="AspectFill"
+                                        HeightRequest="60"
+                                        Source=""
+                                        WidthRequest="60" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontAttributes="Bold"
+                                        Text="{Binding FirstName}" />
+                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="1"
+                                        FontAttributes="Italic"
+                                        Text="{Binding LastName}"
+                                        VerticalOptions="End" />
                                 </Grid>
                             </Frame>
-                            <!-- Separator-->
-                            <BoxView Grid.Row="1" HeightRequest="1"
-                                 BackgroundColor="Red"
-                                 />
+                            <!--  Separator  -->
+                            <BoxView
+                                Grid.Row="1"
+                                BackgroundColor="Red"
+                                HeightRequest="1" />
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

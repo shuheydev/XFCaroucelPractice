@@ -39,7 +39,6 @@ namespace XFCaroucelPractice.Views
         public CollectionViewPage()
         {
             InitializeComponent();
-            BindingContext = this;
 
             for (int i = 1; i < 20; i++)
             {
@@ -53,6 +52,8 @@ namespace XFCaroucelPractice.Views
             RemainingItemsThreshold = 10;
 
             RemainingItemsThresholdReachedCommand = new Command(ExecuteRemainingItemsThresholdReachedCommand);
+
+            BindingContext = this;
         }
 
         /// <summary>
