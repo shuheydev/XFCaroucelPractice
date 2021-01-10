@@ -19,7 +19,7 @@ namespace XFCaroucelPractice.Droid
 
             base.OnCreate(savedInstanceState);
 
-            global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental");
+            global::Xamarin.Forms.Forms.SetFlags("CarouselView_Experimental","IndicatorView_Experimental");
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

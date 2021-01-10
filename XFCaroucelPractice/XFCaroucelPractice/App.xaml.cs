@@ -11,7 +11,7 @@ namespace XFCaroucelPractice
         {
             InitializeComponent();
 
-            MainPage = new CollectionViewPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
